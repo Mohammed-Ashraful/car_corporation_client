@@ -20,7 +20,7 @@ import Contact from "./pages/Home/Contact/Contact";
 
 function App() {
   return (
-    <div style="App">
+    <div className="App">
       <AuthProvider>
         <Router>
           <Switch>

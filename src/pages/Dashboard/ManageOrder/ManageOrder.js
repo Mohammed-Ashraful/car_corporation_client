@@ -41,8 +41,7 @@ const ManageOrder = () => {
   }));
 
   const handleStatus = id => {
-    axios.put(`http://localhost:5000/updateStatue${id}`)
-    // axios.put(`https://safe-tundra-89323.herokuapp.com/updateStatue/${id}`)
+    axios.put(`https://safe-tundra-89323.herokuapp.com/updateStatue/${id}`)
     .then((data)=>setStatus(true))
   }
   

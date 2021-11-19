@@ -1,4 +1,4 @@
-import { Button, Grid, TextField, Typography, CircularProgress } from '@mui/material';
+import { Button, Grid, TextField, Typography, CircularProgress, } from '@mui/material';
 import React, { useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 
@@ -45,7 +45,7 @@ const Reviews = () => {
   return (
     <Grid container spacing={2}>
       {/* This is order information ,,,Name Email , Local Address , Phone */}
-      <Grid item xs={12} md={6} sx={{ mt: 8 , mb:5 }} >
+      <Grid item xs={12} md={12} sx={{ mt: 8 , mb:5 }} >
         <Typography variant="h4" color='#53b57f' gutterBottom component="div">
           Review
         </Typography>

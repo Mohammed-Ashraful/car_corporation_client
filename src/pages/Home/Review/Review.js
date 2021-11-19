@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 // import { Paper } from '@material-ui/core';
 import { Button,Paper } from '@mui/material';
+import { minHeight } from '@mui/system';
 
 
 
@@ -28,12 +29,15 @@ const Review = () => {
       description: 'Math Student',
     },
   ];
-  const Item = ({ name, description }) => {
+  const Item = ({ name, email ,review,rating }) => {
+    // it will change dynamically
     return (
-      <Paper style={{width:300}} >
-        <h2>{name}</h2>
-        <p>{description}</p>
-        <Button>more info...</Button>
+
+      <Paper style={{ width:'50%' ,margin:'0 auto' , minHeight:'300px',backgroundColor:'whitesmoke' ,padding:'40px 20px'}} >
+        <h2>Name :{name}</h2>
+        <h4>Email :{email}</h4>
+        <p>{review}</p>
+        <p>Rating :{rating}</p>
       </Paper>
     );
   };
@@ -42,7 +46,7 @@ const Review = () => {
   return (
     <div>
       <Carousel>
-        {items.map((item, i) => (
+        {reviews?.map((item, i) => (
           <Item key={i} {...item} />
         ))}
       </Carousel>

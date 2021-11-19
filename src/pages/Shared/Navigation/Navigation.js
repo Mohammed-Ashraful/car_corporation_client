@@ -29,7 +29,7 @@ const Navigation = () => {
     },
     NavIcon: {
       [theme.breakpoints.up('sm')]: {
-        display: 'none',
+        display: 'none !important',
       },
     },
     NavItemContainer: {
@@ -55,22 +55,22 @@ const Navigation = () => {
     >
       <List>
         <ListItem button>
-          <ListItemText><Link style={mobileNavItem} to='/'><Button color="inherit">Home</Button></Link></ListItemText>
+          <ListItemText><Link className={mobileNavItem} to='/'><Button color="inherit">Home</Button></Link></ListItemText>
         </ListItem>
         <ListItem button>
-          <ListItemText><Link style={mobileNavItem} to='/allcar'><Button color="inherit">All CAR</Button></Link></ListItemText>
+          <ListItemText><Link className={mobileNavItem} to='/allcar'><Button color="inherit">All CAR</Button></Link></ListItemText>
         </ListItem>
         {user?.email ?
           <>
             <ListItem button>
-              <ListItemText><Link style={mobileNavItem} to='/login'><Button color="inherit">Login</Button></Link></ListItemText>
+              <ListItemText><Link className={mobileNavItem} to='/login'><Button color="inherit">Login</Button></Link></ListItemText>
             </ListItem>
             <ListItem button>
-              <ListItemText><Link style={mobileNavItem} to='/register'><Button color="inherit">Register</Button></Link></ListItemText>
+              <ListItemText><Link className={mobileNavItem} to='/register'><Button color="inherit">Register</Button></Link></ListItemText>
             </ListItem>
           </> :
             <ListItem button>
-            <ListItemText><Link style={mobileNavItem} onClick={logOut} ><Button color="inherit">LogOut</Button></Link></ListItemText>
+            <ListItemText><Link className={mobileNavItem} onClick={logOut} ><Button color="inherit">LogOut</Button></Link></ListItemText>
             </ListItem>
           }
       </List>
@@ -101,19 +101,19 @@ const Navigation = () => {
             
               </Typography>
 
-              <div style={NavItemContainer}>
-                <Link style={NavItem} to='/'><Button color="inherit">Home</Button></Link>
-                <Link style={NavItem} to='/allcar'><Button color="inherit">All Car </Button></Link>
-                <Link style={NavItem} to='/contact'><Button color="inherit">Contact Us</Button></Link>
-                <Link style={NavItem} to='/about'><Button color="inherit">About US</Button></Link>
+              <div className={NavItemContainer}>
+                <Link className={NavItem} to='/'><Button color="inherit">Home</Button></Link>
+                <Link className={NavItem} to='/allcar'><Button color="inherit">All Car </Button></Link>
+                <Link className={NavItem} to='/contact'><Button color="inherit">Contact Us</Button></Link>
+                <Link className={NavItem} to='/about'><Button color="inherit">About US</Button></Link>
 
                 {
                   user?.email ?
                     <span>
-                      <Link style={NavItem} to="dashboard"><Button color="inherit" >Dashboard</Button></Link>
+                      <Link className={NavItem} to="dashboard"><Button color="inherit" >Dashboard</Button></Link>
                       <Button onClick={logOut} color="inherit">LogOut</Button>
                     </span> :
-                    <Link style={NavItem} to="login"><Button color="inherit">Login</Button></Link>
+                    <Link className={NavItem} to="login"><Button color="inherit">Login</Button></Link>
                 }
                 
               </div>
