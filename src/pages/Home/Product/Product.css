@@ -1,0 +1,31 @@
+.car-container {
+  margin-left: 15%;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.car-title {
+  border-bottom: 5px solid rgb(117, 115, 115);
+  /* margin: 100px; */
+  border-radius: 80%;
+}
+@media only screen and (max-width: 1200px) {
+}
+
+@media only screen and (max-width: 992px) {
+  .car-container {
+    margin: 40px 0px 100px 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .car-container {
+    margin: 10%;
+    /* margin-top: 100px; */
+  }
+  .car-title {
+  border-bottom: 2px solid rgb(117, 115, 115);
+  font-size: 30px;
+  color:rgb(130, 174, 175);
+  border-radius: 80%;
+}
+}

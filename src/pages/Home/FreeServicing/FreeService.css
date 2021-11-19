@@ -1,0 +1,42 @@
+.service-option p i {
+  color: red;
+  padding: 0px 10px;
+}
+.service-option p {
+  color: rgba(255, 255, 255, 0.527);
+  text-align: start;
+}
+.service-option{
+  text-align: center;
+   padding-left: 200px;
+}
+
+.service-img {
+  width: 100%;
+}
+  .free-service{
+    padding: 90px;
+    margin: 0;
+  }
+@media only screen and (max-width: 1200px) {
+  .service-option {
+    padding-left: 200px;
+  }
+ 
+}
+
+@media only screen and (max-width: 992px) {
+  .service-option {
+    padding-left: 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .service-option {
+    padding-left: 40px;
+  }
+  .free-service {
+    padding: 0;
+    margin: 0;
+  }
+}

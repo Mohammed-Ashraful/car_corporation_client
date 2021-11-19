@@ -1,0 +1,32 @@
+
+.notFoundImg {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+.notFound{
+    background: linear-gradient(to right, #a5cdd4 57%, #a6aaaa 40%);
+}
+
+.Button{
+margin-top:500px;
+background-color: rgb(173, 34, 34);
+}
+
+@media only screen and (max-width: 480px) {
+  .notFoundImg {
+   margin-top: 200px;
+  }
+}
+
+@media only screen and (max-width:688px) {
+ .notFoundImg{
+   margin: 250px 0px;
+ }
+ .go-back-btn{
+margin-top: -500px;
+}
+  }
+    
+ 
