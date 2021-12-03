@@ -1,0 +1,31 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3 , 1fr);
+  padding: 10px;
+  margin:0 auto;
+}
+.order-card{
+  margin: 20px;
+  box-shadow: 3px 3px 10px gray;
+}
+.order-img{
+  height: "400px";
+  object-fit:'cover';
+  width: "100px"
+}
+.order-info p,h2,h5,h6,p{
+margin: 0;
+color: rgb(157, 165, 150);
+}
+@media only screen and (max-width: 600px) {
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  padding: 10px;
+}
+.order-img{
+  height: 200px;
+  object-fit:'cover';
+  width: "100%"
+}
+}

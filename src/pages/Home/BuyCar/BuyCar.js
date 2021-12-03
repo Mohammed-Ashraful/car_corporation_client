@@ -24,7 +24,7 @@ const BuyCar = () => {
     const order = {
       ...orderInfo,
       email: user?.email,
-      status:'pending',
+      status: 'pending',
       car
 
     }
@@ -127,7 +127,9 @@ const BuyCar = () => {
               name='name'
               onBlur={handleOnBlur}
               defaultValue={user?.displayName}
-              variant="standard" />
+              variant="standard"
+              required
+            />
 
             <TextField
               sx={{ width: '70%', mt: 2 }}
@@ -136,7 +138,9 @@ const BuyCar = () => {
               name='email'
               onBlur={handleOnBlur}
               defaultValue={user?.email}
-              variant="standard" />
+              variant="standard"
+              required
+            />
 
             <TextField
               sx={{ width: '70%', mt: 2 }}
@@ -145,7 +149,8 @@ const BuyCar = () => {
               name='address'
               onBlur={handleOnBlur}
               type='text'
-              variant="standard" />
+              variant="standard"
+              required />
 
             <TextField
               sx={{ width: '70%', mt: 2 }}
@@ -154,7 +159,8 @@ const BuyCar = () => {
               name='phone'
               onBlur={handleOnBlur}
               type='text'
-              variant="standard" />
+              variant="standard"
+              required />
 
             <Button
               sx={{ width: '70%', mt: 2 }}
@@ -163,8 +169,8 @@ const BuyCar = () => {
               color="secondary"
             >CONFIRM Order</Button>
 
-          </form>   } {
-          isLoading && <CircularProgress /> }</Grid>
+          </form>} {
+          isLoading && <CircularProgress />}</Grid>
 
 
 
