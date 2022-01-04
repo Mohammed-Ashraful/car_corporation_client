@@ -1,22 +1,18 @@
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
+import './App.css';
+import AuthProvider from './Contexts/AuthProvider';
+import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
+import AboutUs from "./pages/Home/AboutUs/AboutUs";
+import BuyCar from "./pages/Home/BuyCar/BuyCar";
+import Contact from "./pages/Home/Contact/Contact";
+import AllCar from "./pages/Home/Home/AllCar";
 import Home from './pages/Home/Home/Home';
 import Login from './pages/Login/Login/Login';
-import AuthProvider from './Contexts/AuthProvider';
-import Register from './pages/Login/Register/Register';
-
-import './App.css';
-import AllCar from "./pages/Home/Home/AllCar";
-import BuyCar from "./pages/Home/BuyCar/BuyCar";
-import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
+import Register from './pages/Login/Register/Register';
 import NotFound from "./pages/Shared/NotFound/NotFound";
-import AboutUs from "./pages/Home/AboutUs/AboutUs";
-import Contact from "./pages/Home/Contact/Contact";
-
 
 function App() {
   return (
