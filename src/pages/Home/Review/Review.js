@@ -42,31 +42,27 @@ const Review = () => {
         sx={{
           flexGrow: 1,
           maxWidth: 700,
-          boxShadow: "1px 1px 10px 1px #474747",
-          bgcolor: "#f2f2f2",
+          boxShadow: "1px 1px 10px #474747",
+          bgcolor: "#fff",
         }}
       >
-        <div>
-          <Paper
-            square
-            elevation={0}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              height: 50,
-              pl: 2,
-              bgcolor: "#7479a1",
+        <div
+          style={{
+            paddingTop: 40,
+          }}
+        >
+          <p
+            style={{
+              textAlign: "left",
+              marginLeft: 20,
+              padding: 6,
+              color: "black",
             }}
           >
-            <Typography sx={{ color: "black" }}>
-              User : {steps[activeStep]?.email}{" "}
-            </Typography>
-          </Paper>
-          <p style={{ textAlign: "left", marginLeft: 50, color: "black" }}>
-            Name : <strong>{steps[activeStep]?.name}</strong>
+            <strong>{steps[activeStep]?.name}</strong> say's
           </p>
           <Box sx={{ pb: 4, pt: 1, px: 3 }}>
-            <p>{steps[activeStep]?.review}</p>
+            <p style={{ color: "black" }}>{steps[activeStep]?.review}</p>
 
             <Rating
               style={{ color: "gold", fontSize: "26px" }}
@@ -82,7 +78,7 @@ const Review = () => {
             steps={maxSteps}
             position="static"
             activeStep={activeStep}
-            sx={{ bgcolor: "aquamarine" }}
+            sx={{ bgcolor: "#e1f4f5" }}
             nextButton={
               <Button
                 size="small"
