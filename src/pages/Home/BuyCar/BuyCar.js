@@ -19,9 +19,8 @@ const BuyCar = () => {
     fetch(uri)
       .then((res) => res.json())
       .then((data) => setCar(data));
-  }, [id]);
-
-  console.log(car);
+  }, []);
+ 
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
@@ -35,8 +34,7 @@ const BuyCar = () => {
       car_model: car.model,
       car_id: car.id,
     };
-    // send to the server
-    // fetch('https://pacific-shore-00017.herokuapp.com/orders', {
+    // send to the server 
     fetch("https://pacific-shore-00017.herokuapp.com/orders", {
       method: "POST",
       headers: {
@@ -46,10 +44,6 @@ const BuyCar = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data) {
-          alert("success");
-          console.log(data)
-        }
         if (data?.result?.insertedId || data.message) {
           alert(data.message);
         }

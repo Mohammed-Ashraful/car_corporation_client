@@ -10,8 +10,11 @@ const Product = ({ product, setProduct }) => {
     const uri = "https://pacific-shore-00017.herokuapp.com/car";
     fetch(uri)
       .then((res) => res.json())
-      .then((data) => setProduct(data.slice(0, 6)));
-  }, []);
+      .then((data) => {
+        console.log(data)
+        setProduct(data.slice(0, 6))
+      });
+  }, [setProduct]);
   return (
     <>
       {product.length ? (
