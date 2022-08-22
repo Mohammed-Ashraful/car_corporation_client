@@ -1,6 +1,5 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import useAuth from '../../../hooks/useAuth';
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState();
@@ -9,7 +8,7 @@ const MakeAdmin = () => {
   }
   const handleAdminSubmit = e => {
     const user = { email };
-    fetch('https://safe-tundra-89323.herokuapp.com/users/admin', {
+    fetch('https://pacific-shore-00017.herokuapp.com/users/admin', {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'

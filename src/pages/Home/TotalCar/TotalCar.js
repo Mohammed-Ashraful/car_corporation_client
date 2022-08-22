@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import Car from '../Car/Car';
+import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import Car from '../Car/Car';
 
 const TotalCar = () => {
   const [product, setProduct] = useState([]);
   useEffect(() => {
-    const uri = ('https://safe-tundra-89323.herokuapp.com/car')
+    const uri = ('https://pacific-shore-00017.herokuapp.com/car')
 
     fetch(uri)
       .then(res => res.json())

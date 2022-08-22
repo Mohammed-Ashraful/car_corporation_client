@@ -1,4 +1,4 @@
-import { Button, Grid, TextField, Typography, CircularProgress } from '@mui/material';
+import { Button, CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 
@@ -14,7 +14,7 @@ const AddCar = () => {
     }
 
     // send to the server
-    fetch('https://safe-tundra-89323.herokuapp.com/car', {
+    fetch('https://pacific-shore-00017.herokuapp.com/car', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

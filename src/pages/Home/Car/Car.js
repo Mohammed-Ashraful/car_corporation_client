@@ -20,7 +20,7 @@ const Car = props => {
       />
       <CardContent>
         <Typography gutterBottom variant="h4" component="div">
-          {name}
+          {name} 
         </Typography>
         <Typography gutterBottom variant="h6" component="div">
           Model : {model}

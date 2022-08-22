@@ -17,6 +17,10 @@
 margin: 0;
 color: rgb(157, 165, 150);
 }
+.order-button{
+  background-color: rgba(255, 255, 255, 0);
+  color: black;
+}
 @media only screen and (max-width: 600px) {
 .grid-container {
   display: grid;

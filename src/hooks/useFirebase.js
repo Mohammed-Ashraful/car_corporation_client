@@ -1,115 +1,103 @@
+import {
+    createUserWithEmailAndPassword, getAuth, getIdToken, onAuthStateChanged,
+    signInWithEmailAndPassword, signOut, updateProfile
+} from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../pages/Firebase/firebase.init";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  updateProfile,
-  getIdToken
-} from "firebase/auth";
 
-initializeAuthentication()
+initializeAuthentication();
 
 const useFirebase = () => {
-
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [authError, setAuthError] = useState('')
+  const [authError, setAuthError] = useState("");
   const [admin, setAdmin] = useState(false);
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
 
   const auth = getAuth();
 
-  //Register user 
+  //Register user
   const registerUser = (email, password, name, history) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setAuthError('');
+        setAuthError("");
 
-        const user = userCredential?.user
-        const newUser = { ...user, displayName: name }
+        const user = userCredential?.user;
+        const newUser = { ...user, displayName: name };
         setUser(newUser);
-        saveUser(email, name)
-        // Update user name Before creation 
+        saveUser(email, name);
+        // Update user name Before creation
 
         updateProfile(auth.currentUser, {
           displayName: name,
         })
-          .then(() => {
-          })
-          .catch((error) => {
-          });
-        history.replace('/');
-
-      })
-      .catch((error) => {
-        setAuthError(error.message)
-      }).finally(() => setIsLoading(false));
-  }
-  const loginUser = (email, password, location, history) => {
-    setIsLoading(true);
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const destination = location?.state?.from || '/';
-        history.replace(destination);
-        setAuthError('');
+          .then(() => {})
+          .catch((error) => {});
+        history.replace("/");
       })
       .catch((error) => {
         setAuthError(error.message);
       })
       .finally(() => setIsLoading(false));
-  }
-  const logOut = () => {
-
+  };
+  const loginUser = (email, password, location, history) => {
     setIsLoading(true);
-    signOut(auth).then(() => {
-      // Sign-out successful.
-    }).catch((error) => {
-      // An error happened.
-    }).finally(() => setIsLoading(false));
-
-  }
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const destination = location?.state?.from || "/";
+        history.replace(destination);
+        setAuthError("");
+      })
+      .catch((error) => {
+        setAuthError(error.message);
+      })
+      .finally(() => setIsLoading(false));
+  };
+  const logOut = () => {
+    setIsLoading(true);
+    signOut(auth)
+      .then(() => {
+        setUser({});
+      })
+      .catch((error) => {})
+      .finally(() => setIsLoading(false));
+  };
 
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser(user)
-        getIdToken(user)
-          .then(idToken => setToken(idToken));
+        setUser(user);
+        getIdToken(user).then((idToken) => setToken(idToken));
       } else {
-        setUser(user)
+        setUser(user);
       }
-      setIsLoading(false)
+      setIsLoading(false);
     });
-    return () => unsubscribed
+    return () => unsubscribed;
   }, [auth]);
 
   useEffect(() => {
-    const uri = `https://safe-tundra-89323.herokuapp.com/users/${user?.email}`
+    const uri = `https://pacific-shore-00017.herokuapp.com/users/${user?.email}`;
     fetch(uri)
-      .then(res => res.json())
-      .then(data => {
-        setAdmin(data.admin)
-      })
-  }, [user?.email])
-
-
+      .then((res) => res.json())
+      .then((data) => {
+        setAdmin(data.admin);
+      });
+  }, [user?.email]);
 
   const saveUser = (email, displayName) => {
     const user = { email, displayName };
-    fetch('https://safe-tundra-89323.herokuapp.com/users', {
-      method: 'POST',
+    fetch("https://pacific-shore-00017.herokuapp.com/users", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(user),
     })
-      .then(res => res.json())
-      .then(data => console.log(data))
-  }
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return {
     registerUser,
     logOut,
@@ -118,7 +106,7 @@ const useFirebase = () => {
     admin,
     isLoading,
     authError,
-    token
-  }
-}
+    token,
+  };
+};
 export default useFirebase;

@@ -57,10 +57,10 @@ function Dashboard(props) {
       </Box>}
 
 
-
+{/* 
       <Link style={{ textDecoration: 'none', display: 'block', color: 'black' }} >
         <Button color="inherit" onClick={logOut} >Log Out </Button>
-      </Link>
+      </Link> */}
 
       <Divider />
     </div>

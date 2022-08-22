@@ -1,27 +1,29 @@
-import {
-  BrowserRouter as Router, Route, Switch
-} from "react-router-dom";
-import './App.css';
-import AuthProvider from './Contexts/AuthProvider';
+import { Box, CircularProgress } from "@mui/material";
+
+import { useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import AuthProvider from "./Contexts/AuthProvider";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import AboutUs from "./pages/Home/AboutUs/AboutUs";
 import BuyCar from "./pages/Home/BuyCar/BuyCar";
 import Contact from "./pages/Home/Contact/Contact";
 import AllCar from "./pages/Home/Home/AllCar";
-import Home from './pages/Home/Home/Home';
-import Login from './pages/Login/Login/Login';
+import Home from "./pages/Home/Home/Home";
+import Login from "./pages/Login/Login/Login";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
-import Register from './pages/Login/Register/Register';
+import Register from "./pages/Login/Register/Register";
 import NotFound from "./pages/Shared/NotFound/NotFound";
 
 function App() {
+  const [product, setProduct] = useState([]);
   return (
     <div className="App">
       <AuthProvider>
         <Router>
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Home product={product} setProduct={setProduct} />
             </Route>
 
             <Route path="/login">
@@ -32,7 +34,7 @@ function App() {
               <Register />
             </Route>
 
-            <PrivateRoute path='/dashboard'>
+            <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
             </PrivateRoute>
 
@@ -41,21 +43,20 @@ function App() {
             </Route>
 
             <Route path="/about">
-              <AboutUs/>
+              <AboutUs />
             </Route>
             <Route path="/contact">
-              <Contact/>
+              <Contact />
             </Route>
-            
+
             <Route path="/car/:id">
-             <BuyCar></BuyCar>
+              <BuyCar></BuyCar>
             </Route>
 
-            <Route path='*'>
+            <Route path="*">
               <NotFound></NotFound>
-              </Route>
+            </Route>
           </Switch>
-
         </Router>
       </AuthProvider>
     </div>
